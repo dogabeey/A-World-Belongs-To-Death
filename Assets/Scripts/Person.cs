@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Reflection;
 using System;
 
-public class Person : MonoBehaviour
+public class Person
 {
     static float MULTIPLIER_STR, MULTIPLIER_AGI, MULTIPLIER_INT, MULTIPLIER_CHA;
 
@@ -13,10 +13,10 @@ public class Person : MonoBehaviour
     public DateTime birthDate;
     public Tile location;
 
-    public int Strength;
-    public int Agility;
-    public int Intelligence;
-    public int Charisma;
+    public int Strength = 3;
+    public int Agility = 3;
+    public int Intelligence = 3;
+    public int Charisma = 3;
 
     float melee = 0;
     float shooting = 0;
@@ -36,6 +36,14 @@ public class Person : MonoBehaviour
     float intimidation = 0;
     float facilityManagement = 0;
     float herding = 0;
+
+    public Person(string firstName, string lastName, DateTime birthDate, Tile location)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.location = location;
+    }
 
     public float Melee
     {
