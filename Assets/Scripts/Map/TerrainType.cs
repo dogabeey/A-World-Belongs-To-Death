@@ -17,6 +17,7 @@ public class TerrainType
     {
         this.name = name;
         this.imagePath = imagePath;
+        color = tileColor;
         this.speedMultiplier = speedMultiplier;
         this.liveSpaceMultiplier = liveSpaceMultiplier;
         this.farmSpaceMultiplier = farmSpaceMultiplier;

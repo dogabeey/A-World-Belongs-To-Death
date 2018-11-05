@@ -58,11 +58,14 @@ public class Map : MonoBehaviour
     {
         for (int i = 0; i < tiles.GetLength(0); i++)
         {
-            Debug.Log(button.GetComponent<RectTransform>().sizeDelta.x);
             for (int j = 0; j < tiles.GetLength(1); j++)
             {
                 Button drawnTile = Instantiate(button,button.transform.parent);
                 drawnTile.transform.localPosition = new Vector3(i * button.GetComponent<RectTransform>().sizeDelta.x, j * button.GetComponent<RectTransform>().sizeDelta.y);
+                Debug.Log(tiles[i, j].terrain.color);
+                drawnTile.GetComponent<Image>().color = tiles[i, j].terrain.color;
+                drawnTile.GetComponentInChildren<Text>().text = tiles[i, j].terrain.name;
+                button.enabled = false;
             }
         }
     }
