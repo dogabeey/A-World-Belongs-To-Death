@@ -15,17 +15,21 @@ public class Map : MonoBehaviour
 
         tiles = new Tile[width, height];
         Debug.Log("Started start");
-        new TerrainType("desert", "desert.png",Color.yellow);
-        new TerrainType("forest", "forest.png",Color.green);
+        new TerrainType("desert", "desert.png", new Color32(200,180,45,255));
+        new TerrainType("forest", "forest.png", new Color32(120, 180, 80, 255));
+        new TerrainType("jungle", "jungle.png", new Color32(50, 130, 15, 255));
+        new TerrainType("savannah", "savannah.png", new Color32(200, 130, 0, 255));
+        new TerrainType("urban", "urban.png", new Color32(190, 190, 180, 255));
         new TerrainFeature("hill", "hill.png");
         new TerrainFeature("plain", "plain.png");
 
         GenerateMap();
     }
 
-    public void ConvertNeighbours(int x, int y, double probability, double divide)
+    public void ConvertNeighbours(int x, int y, double probability, double divide,TerrainType tile = null)
     {
-        if (x <= 0 || x >= tiles.GetLength(0) || y <= 0 || y >= tiles.GetLength(1)) return;
+        if (tile != null) tiles[x, y].terrain = tile;
+        if (x <= 0 || x >= tiles.GetLength(0) - 1 || y <= 0 || y >= tiles.GetLength(1) - 1) return;
         for (int i = 0; i < 2; i++)
         {
             for (int j = 0; j < 2; j++)
@@ -33,8 +37,8 @@ public class Map : MonoBehaviour
                 float rand = UnityEngine.Random.Range(0, 100);
                 if (probability > rand)
                 {
-                    tiles[x + (int)Mathf.Pow(-1, i), (int)Mathf.Pow(-1, j)].terrain = tiles[x, y].terrain;
-                    ConvertNeighbours(x + (int)Mathf.Pow(-1, i), (int)Mathf.Pow(-1, j), probability / divide, divide);
+                    tiles[x + (int)Mathf.Pow(-1, i),y + (int)Mathf.Pow(-1, j)].terrain = tiles[x, y].terrain;
+                    ConvertNeighbours(x + (int)Mathf.Pow(-1, i),y + (int)Mathf.Pow(-1, j), probability / divide, divide);
                 }
                 else return;
             }
@@ -52,6 +56,7 @@ public class Map : MonoBehaviour
                 //Debug.Log("Map's (" + (i + 1) + ", " + (j + 1) + ") coordinates has a(n) " + tiles[i, j].terrain.name);
             }
         }
+        ConvertNeighbours(3, 3, 100, 1.2, TerrainType.instances.Find(t => t.name == "desert"));
     }
 
     public void  DrawMap(float spaceBetweenButtons)
@@ -62,7 +67,6 @@ public class Map : MonoBehaviour
             {
                 Button drawnTile = Instantiate(button,button.transform.parent);
                 drawnTile.transform.localPosition = new Vector3(i * button.GetComponent<RectTransform>().sizeDelta.x, j * button.GetComponent<RectTransform>().sizeDelta.y);
-                Debug.Log(tiles[i, j].terrain.color);
                 drawnTile.GetComponent<Image>().color = tiles[i, j].terrain.color;
                 drawnTile.GetComponentInChildren<Text>().text = tiles[i, j].terrain.name;
                 button.enabled = false;
