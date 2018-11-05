@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TerrainFeature
 {
+    public static List<TerrainFeature> instances = new List<TerrainFeature>();
+
     public string name;
     public string imagePath;
     public float speedMultiplier, attackerMultiplier, defenderMultiplier, liveSpaceMultiplier, farmSpaceMultiplier, forageMultiplier, herdingMultiplier, constructionMultiplier;
@@ -20,5 +22,7 @@ public class TerrainFeature
         this.forageMultiplier = forageMultiplier;
         this.herdingMultiplier = herdingMultiplier;
         this.constructionMultiplier = constructionMultiplier;
+
+        instances.Add(this);
     }
 }

@@ -6,6 +6,8 @@ using System;
 
 public class TerrainType
 {
+    public static List<TerrainType> instances = new List<TerrainType>();
+
     public string name;
     public string imagePath;
     public float speedMultiplier, liveSpaceMultiplier, farmSpaceMultiplier, forageMultiplier, herdingMultiplier, constructionMultiplier, minHeatMultiplier, maxHeatMultiplier;
@@ -22,5 +24,7 @@ public class TerrainType
         this.constructionMultiplier = constructionMultiplier;
         this.minHeatMultiplier = minHeatMultiplier;
         this.maxHeatMultiplier = maxHeatMultiplier;
+        
+        instances.Add(this);
     }
 }
