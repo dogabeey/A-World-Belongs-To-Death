@@ -10,7 +10,7 @@ public class TerrainFeature
     public string imagePath;
     public float speedMultiplier, attackerMultiplier, defenderMultiplier, liveSpaceMultiplier, farmSpaceMultiplier, forageMultiplier, herdingMultiplier, constructionMultiplier;
 
-    public TerrainFeature(string name, string imagePath, float speedMultiplier, float attackerMultiplier, float defenderMultiplier, float liveSpaceMultiplier, float farmSpaceMultiplier, float forageMultiplier, float herdingMultiplier, float constructionMultiplier)
+    public TerrainFeature(string name, string imagePath, float speedMultiplier = 1, float attackerMultiplier = 1, float defenderMultiplier = 1, float liveSpaceMultiplier = 1, float farmSpaceMultiplier = 1, float forageMultiplier = 1, float herdingMultiplier = 1, float constructionMultiplier = 1)
     {
         this.name = name;
         this.imagePath = imagePath;

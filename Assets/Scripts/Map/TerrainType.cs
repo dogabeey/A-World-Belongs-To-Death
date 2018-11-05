@@ -10,9 +10,10 @@ public class TerrainType
 
     public string name;
     public string imagePath;
-    public float speedMultiplier, liveSpaceMultiplier, farmSpaceMultiplier, forageMultiplier, herdingMultiplier, constructionMultiplier, minHeatMultiplier, maxHeatMultiplier;
+    public Color color;
+    public float speedMultiplier = 1, liveSpaceMultiplier = 1, farmSpaceMultiplier = 1, forageMultiplier = 1, herdingMultiplier = 1, constructionMultiplier = 1, minHeatMultiplier = 1, maxHeatMultiplier = 1;
 
-    public TerrainType(string name, string imagePath, float speedMultiplier, float liveSpaceMultiplier, float farmSpaceMultiplier, float forageMultiplier, float herdingMultiplier, float constructionMultiplier, float minHeatMultiplier, float maxHeatMultiplier)
+    public TerrainType(string name, string imagePath, Color tileColor, float speedMultiplier = 1, float liveSpaceMultiplier = 1, float farmSpaceMultiplier = 1, float forageMultiplier = 1, float herdingMultiplier = 1, float constructionMultiplier = 1, float minHeatMultiplier = 1, float maxHeatMultiplier = 1)
     {
         this.name = name;
         this.imagePath = imagePath;

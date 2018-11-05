@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
-using System;
 
 public class Tile
 {
@@ -17,6 +16,7 @@ public class Tile
     public int zombieCount;
     public Faction faction;
     public List<Building> buildings;
+
 
     public Tile()
     {
@@ -41,6 +41,13 @@ public class Tile
         this.base_buildingCapacity = base_buildingCapacity;
         this.base_popCapacity = base_popCapacity;
         instances.Add(this);
+    }
+
+    public static Tile RandomTile()
+    {
+        int randType = Random.Range(0, TerrainType.instances.Count);
+        int randFeature = Random.Range(0, TerrainFeature.instances.Count);
+        return new Tile(TerrainType.instances[randType], TerrainFeature.instances[randFeature], 10, 100);
     }
 
     public int PopCapacity
