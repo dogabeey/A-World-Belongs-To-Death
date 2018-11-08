@@ -7,7 +7,7 @@ using System;
 
 public class Faction
 {
-    string name;
+    public string name;
 
     // FILL THIS STUB
 }

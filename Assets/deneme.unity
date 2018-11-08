@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 177816013}
   - component: {fileID: 177816012}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: Pop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 276844680}
   - component: {fileID: 276844679}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TileType
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 833693543}
   - component: {fileID: 833693542}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: OwnerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -781,7 +781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 79.6, y: 67}
+  m_AnchoredPosition: {x: 79.600006, y: 67}
   m_SizeDelta: {x: 159.1, y: 134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347929168
@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 1823053006}
   - component: {fileID: 1823053005}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Temperature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

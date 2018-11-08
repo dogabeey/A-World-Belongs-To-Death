@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 
-public class Tile
+public class Tile : MonoBehaviour
 {
     public static List<Tile> instances = new List<Tile>();
 
@@ -12,8 +12,8 @@ public class Tile
     public int base_buildingCapacity;
     public int base_popCapacity;
 
-    public int population;
-    public int zombieCount;
+    public int population = 0;
+    public int zombieCount = 0;
     public Faction faction;
     public List<Building> buildings;
 

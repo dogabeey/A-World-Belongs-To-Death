@@ -20,8 +20,11 @@ public class Map : MonoBehaviour
         new TerrainType("jungle", "jungle.png", new Color32(50, 130, 15, 255));
         new TerrainType("savannah", "savannah.png", new Color32(200, 130, 0, 255));
         new TerrainType("urban", "urban.png", new Color32(190, 190, 180, 255));
+
         new TerrainFeature("hill", "hill.png");
         new TerrainFeature("plain", "plain.png");
+        new TerrainFeature("lake", "plain.png");
+        new TerrainFeature("ruin", "plain.png");
 
         GenerateMap();
     }
@@ -69,6 +72,7 @@ public class Map : MonoBehaviour
                 drawnTile.transform.localPosition = new Vector3(i * button.GetComponent<RectTransform>().sizeDelta.x, j * button.GetComponent<RectTransform>().sizeDelta.y);
                 drawnTile.GetComponent<Image>().color = tiles[i, j].terrain.color;
                 drawnTile.GetComponentInChildren<Text>().text = tiles[i, j].terrain.name;
+                drawnTile.GetComponent<TileControl>().tile = tiles[i, j];
                 button.enabled = false;
             }
         }
