@@ -19,7 +19,7 @@ public class Map : MonoBehaviour
         new TerrainType("forest", "forest.png", new Color32(120, 180, 80, 255));
         new TerrainType("jungle", "jungle.png", new Color32(50, 130, 15, 255));
         new TerrainType("savannah", "savannah.png", new Color32(200, 130, 0, 255));
-        new TerrainType("urban", "urban.png", new Color32(190, 190, 180, 255));
+        new TerrainType("concrete", "concrete.png", new Color32(190, 190, 180, 255));
 
         new TerrainFeature("hill", "hill.png");
         new TerrainFeature("plain", "plain.png");
@@ -27,21 +27,22 @@ public class Map : MonoBehaviour
         new TerrainFeature("ruin", "plain.png");
 
         GenerateMap();
+        DrawMap(1);
     }
 
-    public void ConvertNeighbours(int x, int y, double probability, double divide,TerrainType tile = null)
+    public void ConvertNeighbours(int x, int y, double probability, double divide, TerrainType terrainType = null)
     {
-        if (tile != null) tiles[x, y].terrain = tile;
+        if (terrainType != null) tiles[x, y].terrain = terrainType;
         if (x <= 0 || x >= tiles.GetLength(0) - 1 || y <= 0 || y >= tiles.GetLength(1) - 1) return;
         for (int i = 0; i < 2; i++)
         {
             for (int j = 0; j < 2; j++)
             {
-                float rand = UnityEngine.Random.Range(0, 100);
+                float rand = Random.Range(0, 100);
                 if (probability > rand)
                 {
-                    tiles[x + (int)Mathf.Pow(-1, i),y + (int)Mathf.Pow(-1, j)].terrain = tiles[x, y].terrain;
-                    ConvertNeighbours(x + (int)Mathf.Pow(-1, i),y + (int)Mathf.Pow(-1, j), probability / divide, divide);
+                    tiles[x + i * (int)Mathf.Pow(-1, j), y + (1 - i) * (int)Mathf.Pow(-1, j)].terrain = tiles[x, y].terrain;
+                    ConvertNeighbours(x + (int)Mathf.Pow(-1, i), y + (int)Mathf.Pow(-1, j), probability / divide, divide);
                 }
                 else return;
             }

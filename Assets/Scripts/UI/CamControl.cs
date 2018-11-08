@@ -43,7 +43,7 @@ public class CamControl : MonoBehaviour {
         {
             camera.orthographicSize = camera.orthographicSize + zoomSpeed;
             Vector3 pointerPosition = camera.ScreenToWorldPoint(Input.mousePosition);
-            camera.transform.position = camera.transform.position - (camera.transform.position - pointerPosition) * scrollSpeed / 4;
+            camera.transform.position = camera.transform.position + (camera.transform.position - pointerPosition) * scrollSpeed / 4;
         }
         if(Input.GetKey(KeyCode.Mouse2))
         {
