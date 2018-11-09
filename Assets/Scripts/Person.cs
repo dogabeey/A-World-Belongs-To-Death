@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
-using System;
+using System.IO;
 
 public class Person
 {
-    public static List<Person> people;
+    public static List<Person> people = new List<Person>();
 
     static float MULTIPLIER_STR, MULTIPLIER_AGI, MULTIPLIER_INT, MULTIPLIER_CHA;
 
     public string firstName;
     public string lastName;
-    public DateTime birthDate;
+    public int age;
     public Tile location;
 
     public int Strength = 3;
@@ -39,14 +39,28 @@ public class Person
     float facilityManagement = 0;
     float herding = 0;
 
-    public Person(string firstName, string lastName, DateTime birthDate, Tile location)
+    public Person()
+    {
+        firstName = RandomName("Assets\\Random Names\\names.txt");
+        lastName = RandomName("Assets\\Random Names\\names.txt");
+        age = Random.Range(18, 70);
+    }
+
+    public Person(string firstName, string lastName, int age = 0, Tile location = null)
     {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthDate = birthDate;
+        this.age = age;
         this.location = location;
 
         people.Add(this);
+    }
+
+    string RandomName(string filePath)
+    {
+        string[] nameList = File.ReadAllLines(filePath);
+        string retVal = nameList[UnityEngine.Random.Range(0, nameList.Length)];
+        return retVal;
     }
 
     public float Melee

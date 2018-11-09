@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 
-public class Tile : MonoBehaviour
+public class Tile
 {
     public static List<Tile> instances = new List<Tile>();
 
