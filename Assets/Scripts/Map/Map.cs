@@ -60,7 +60,7 @@ public class Map : MonoBehaviour
                 //Debug.Log("Map's (" + (i + 1) + ", " + (j + 1) + ") coordinates has a(n) " + tiles[i, j].terrain.name);
             }
         }
-        ConvertNeighbours(3, 3, 100, 1.1, TerrainType.instances.Find(t => t.name == "desert"));
+        ConvertNeighbours(3, 3, 100, 1.2, TerrainType.instances.Find(t => t.name == "desert"));
     }
 
     public void  DrawMap(float spaceBetweenButtons)

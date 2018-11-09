@@ -12,7 +12,13 @@ public class Tile : MonoBehaviour
     public int base_buildingCapacity;
     public int base_popCapacity;
 
-    public int population = 0;
+    public int Population
+    {
+        get
+        {
+            return Person.people.FindAll(p => p.location == this).Count;
+        }
+    }
     public int zombieCount = 0;
     public Faction faction;
     public List<Building> buildings;

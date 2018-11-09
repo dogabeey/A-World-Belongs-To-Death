@@ -6,6 +6,8 @@ using System;
 
 public class Person
 {
+    public static List<Person> people;
+
     static float MULTIPLIER_STR, MULTIPLIER_AGI, MULTIPLIER_INT, MULTIPLIER_CHA;
 
     public string firstName;
@@ -43,6 +45,8 @@ public class Person
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.location = location;
+
+        people.Add(this);
     }
 
     public float Melee

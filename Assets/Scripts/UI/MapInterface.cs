@@ -35,7 +35,7 @@ public class MapInterface : MonoBehaviour
         Tile tile = selected.GetComponent<TileControl>().tile;
         tileType.text = tile.terrain.name + " " + tile.feature.name;
         ownerName.text = tile.faction != null ? tile.faction.name : "Unoccupied";
-        pop.text = "Population: " + tile.population.ToString();
+        pop.text = "Population: " + tile.Population.ToString();
         coordinates.text = "( " + selected.GetComponent<TileControl>().x + " , " + selected.GetComponent<TileControl>().y + " )";
      }
 }
