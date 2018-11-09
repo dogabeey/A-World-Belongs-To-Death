@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MapInterface : MonoBehaviour
 {
-    public Text tileType, ownerName, temperature, pop;
+    public Text tileType, ownerName, coordinates, pop;
     Button selected;
     public Button Selected
     {
@@ -36,5 +36,6 @@ public class MapInterface : MonoBehaviour
         tileType.text = tile.terrain.name + " " + tile.feature.name;
         ownerName.text = tile.faction != null ? tile.faction.name : "Unoccupied";
         pop.text = "Population: " + tile.population.ToString();
+        coordinates.text = "( " + selected.GetComponent<TileControl>().x + " , " + selected.GetComponent<TileControl>().y + " )";
      }
 }

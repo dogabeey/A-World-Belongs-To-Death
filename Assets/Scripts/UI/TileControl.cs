@@ -6,4 +6,5 @@ using UnityEngine.UI;
 public class TileControl : MonoBehaviour
 {
     public Tile tile;
+    public int x, y;
 }

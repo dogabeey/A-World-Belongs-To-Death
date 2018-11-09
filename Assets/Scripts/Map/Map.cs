@@ -12,7 +12,7 @@ public class Map : MonoBehaviour
     void Start()
     {
         Color tileColor = button.GetComponent<Image>().color;
-
+        button.enabled = true;
         tiles = new Tile[width, height];
         Debug.Log("Started start");
         new TerrainType("desert", "desert.png", new Color32(200,180,45,255));
@@ -60,7 +60,7 @@ public class Map : MonoBehaviour
                 //Debug.Log("Map's (" + (i + 1) + ", " + (j + 1) + ") coordinates has a(n) " + tiles[i, j].terrain.name);
             }
         }
-        ConvertNeighbours(3, 3, 100, 1.2, TerrainType.instances.Find(t => t.name == "desert"));
+        ConvertNeighbours(3, 3, 100, 1.1, TerrainType.instances.Find(t => t.name == "desert"));
     }
 
     public void  DrawMap(float spaceBetweenButtons)
@@ -69,11 +69,14 @@ public class Map : MonoBehaviour
         {
             for (int j = 0; j < tiles.GetLength(1); j++)
             {
-                Button drawnTile = Instantiate(button,button.transform.parent);
+                Button drawnTile = Instantiate(button, button.transform.parent);
                 drawnTile.transform.localPosition = new Vector3(i * button.GetComponent<RectTransform>().sizeDelta.x, j * button.GetComponent<RectTransform>().sizeDelta.y);
                 drawnTile.GetComponent<Image>().color = tiles[i, j].terrain.color;
                 drawnTile.GetComponentInChildren<Text>().text = tiles[i, j].terrain.name;
                 drawnTile.GetComponent<TileControl>().tile = tiles[i, j];
+                drawnTile.GetComponent<TileControl>().x = i;
+                drawnTile.GetComponent<TileControl>().y = j;
+                drawnTile.enabled = true;
                 button.enabled = false;
             }
         }
