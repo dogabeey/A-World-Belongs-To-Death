@@ -42,7 +42,7 @@ public class Map : MonoBehaviour
                 if (probability > rand)
                 {
                     tiles[x + i * (int)Mathf.Pow(-1, j), y + (1 - i) * (int)Mathf.Pow(-1, j)].terrain = tiles[x, y].terrain;
-                    ConvertNeighbours(x + (int)Mathf.Pow(-1, i), y + (int)Mathf.Pow(-1, j), probability / divide, divide);
+                    ConvertNeighbours(x + i * (int)Mathf.Pow(-1, j), y + (1 - i) * (int)Mathf.Pow(-1, j), probability / divide, divide);
                 }
                 else return;
             }
