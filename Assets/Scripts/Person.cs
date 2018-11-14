@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 using System.IO;
+using System;
+using System.Linq;
 
 public class Person
 {
@@ -66,17 +68,31 @@ public class Person
         public string name;
         public struct StatWeight
         {
-            Stats stat;
-            float weight;
+            public Stats stat;
+            public float weight;
         }
         public List<StatWeight> statWeight = new List<StatWeight>();
+
+        public Personality()
+        {
+
+        }
+
+        public float GetWeight(Stats stat)
+        {
+            return statWeight.Find(sw => sw.stat == stat).weight;
+        }
+        public void SetWeight(Stats stat, float value)
+        {
+            
+        }
     }
 
     public Person()
     {
         firstName = RandomName("Assets\\Random Names\\names.txt");
         lastName = RandomName("Assets\\Random Names\\names.txt");
-        age = Random.Range(18, 70);
+        age = UnityEngine.Random.Range(18, 70);
     }
 
     public Person(string firstName, string lastName, int age = 0,  Tile location = null )
