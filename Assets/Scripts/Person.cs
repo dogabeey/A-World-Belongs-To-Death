@@ -63,8 +63,13 @@ public class Person
 
     public class Personality
     {
-        string name;
-
+        public string name;
+        public struct StatWeight
+        {
+            Stats stat;
+            float weight;
+        }
+        public List<StatWeight> statWeight = new List<StatWeight>();
     }
 
     public Person()
