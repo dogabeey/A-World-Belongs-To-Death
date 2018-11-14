@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 using System.IO;
-using System;
-using System.Linq;
+using Eppy;
 
 public class Person
 {
@@ -66,12 +65,7 @@ public class Person
     public class Personality
     {
         public string name;
-        public struct StatWeight
-        {
-            public Stats stat;
-            public float weight;
-        }
-        public List<StatWeight> statWeight = new List<StatWeight>();
+        public List<Tuple<Stats, float>> statWeights;
 
         public Personality()
         {
@@ -80,7 +74,7 @@ public class Person
 
         public float GetWeight(Stats stat)
         {
-            return statWeight.Find(sw => sw.stat == stat).weight;
+            return statWeights.Find(sw => sw.Item1 == stat).Item2;
         }
         public void SetWeight(Stats stat, float value)
         {
