@@ -20,6 +20,28 @@ public class Person
     public int Intelligence = 3;
     public int Charisma = 3;
 
+    public enum Stats
+    {
+        melee,
+        shooting,
+        foraging,
+        construction,
+        riding,
+        driving,
+        stamina,
+        running,
+        treatment,
+        science,
+        crafting,
+        leadership,
+        prisonManagement,
+        lawmaking,
+        persuasion,
+        intimidation,
+        facilityManagement,
+        herding
+}
+
     float melee = 0;
     float shooting = 0;
     float foraging = 0;
@@ -39,6 +61,12 @@ public class Person
     float facilityManagement = 0;
     float herding = 0;
 
+    public class Personality
+    {
+        string name;
+
+    }
+
     public Person()
     {
         firstName = RandomName("Assets\\Random Names\\names.txt");
@@ -46,7 +74,7 @@ public class Person
         age = Random.Range(18, 70);
     }
 
-    public Person(string firstName, string lastName, int age = 0, Tile location = null)
+    public Person(string firstName, string lastName, int age = 0,  Tile location = null )
     {
         this.firstName = firstName;
         this.lastName = lastName;
