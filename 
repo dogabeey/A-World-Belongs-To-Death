@@ -1,0 +1,83 @@
+[33mcommit b42e9dc35eabfd243f0caa1813a3aec11d034882[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Thu Nov 8 21:20:34 2018 +0300
+
+    some ui and mapgen changes
+
+[33mcommit 6f62e98d6f92d0c3a21059554785995330fee81f[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Thu Nov 8 10:43:38 2018 +0300
+
+    Add tile info panel
+
+[33mcommit 55771612e30a48a4c420fff864fbba21fa8b12a7[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Wed Nov 7 23:02:31 2018 +0300
+
+    few minor ui additions
+
+[33mcommit 969d675ed4de96cedeb2db0c96525a54881d5016[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Wed Nov 7 21:28:17 2018 +0300
+
+    camera controls implement
+
+[33mcommit 0cc5591f8ab6a966097718fa09813549631f3e51[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Tue Nov 6 02:15:51 2018 +0300
+
+    map generation improvements
+
+[33mcommit e5bedd966b111160a46c0b7f22d52cfd202eaacf[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Mon Nov 5 23:43:30 2018 +0300
+
+    map drawing and generation
+
+[33mcommit 37fedece7a88dd31ea8f17e38dbe0d27034db40b[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Mon Nov 5 22:12:06 2018 +0300
+
+    map drawing and generation
+
+[33mcommit 3b7923f861ae98cde82b100f7b41257a5f4bd02f[m
+Author: dogabeey <dogabeey@gmail.com>
+Date:   Mon Nov 5 15:58:24 2018 +0300
+
+    class instance lists
+
+[33mcommit f26a549d59bfe98ab54e14de236d9ce8e8e4ecc9[m
+Author: dogabeey <dogabeey@gmail.com>
+Date:   Mon Nov 5 10:59:31 2018 +0300
+
+    some minor changes
+
+[33mcommit 029deb0a0614586faac1333fd72004e0065533fb[m
+Author: dogabeey <dogabeey@gmail.com>
+Date:   Mon Nov 5 10:48:59 2018 +0300
+
+    Some map gen functions
+
+[33mcommit cec1c36f3bbd91dd6c7220e464841f55bc14087e[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Mon Nov 5 01:23:44 2018 +0300
+
+    minor additions
+
+[33mcommit 1beb1bc5dc023b648abbbd9d39891d937202b538[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Mon Nov 5 01:23:36 2018 +0300
+
+    minor additions
+
+[33mcommit d0b9be0a20e21b851c75b319b49a5035e0270cc5[m
+Author: dogabeey@gmail.com <dogabeey@gmail.com>
+Date:   Mon Nov 5 01:16:48 2018 +0300
+
+    init
+
+[33mcommit d1ee4a89b0896619aeb15fde560238d7c674c21a[m
+Author: Doğa Can Kılıç <41574327+dogabeey@users.noreply.github.com>
+Date:   Mon Nov 5 01:12:51 2018 +0300
+
+    Initial commit
