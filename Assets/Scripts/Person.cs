@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 using System.IO;
+using Eppy;
 
 public class Person
 {
@@ -13,12 +14,35 @@ public class Person
     public string firstName;
     public string lastName;
     public int age;
+    public Personality personality;
     public Tile location;
 
     public int Strength = 3;
     public int Agility = 3;
     public int Intelligence = 3;
     public int Charisma = 3;
+
+    public enum Stats
+    {
+        melee,
+        shooting,
+        foraging,
+        construction,
+        riding,
+        driving,
+        stamina,
+        running,
+        treatment,
+        science,
+        crafting,
+        leadership,
+        prisonManagement,
+        lawmaking,
+        persuasion,
+        intimidation,
+        facilityManagement,
+        herding
+}
 
     float melee = 0;
     float shooting = 0;
@@ -39,19 +63,48 @@ public class Person
     float facilityManagement = 0;
     float herding = 0;
 
-    public Person()
+    public class Personality
+    {
+        public static List<Personality> personalities = new List<Personality>();
+
+        public string name;
+        public List<Tuple<Stats, float>> statWeights;
+
+        public Personality(string name, List<Tuple<Stats, float>> statWeights)
+        {
+            this.name = name;
+            this.statWeights = statWeights;
+            personalities.Add(this);
+        }
+
+        public float GetWeight(Stats stat)
+        {
+            if (statWeights.Exists(sw => sw.Item1 == stat))
+                return statWeights.Find(sw => sw.Item1 == stat).Item2;
+            else return 1;
+        }
+        public void AddWeight(Stats stat, float value)
+        {
+            statWeights.Add(new Tuple<Stats, float>(stat, value));
+        }
+    }
+
+    public Person(Personality personality)
     {
         firstName = RandomName("Assets\\Random Names\\names.txt");
         lastName = RandomName("Assets\\Random Names\\names.txt");
         age = Random.Range(18, 70);
+        this.personality = personality;
+        people.Add(this);
     }
 
-    public Person(string firstName, string lastName, int age = 0, Tile location = null)
+    public Person(string firstName, string lastName, Personality personality, int age = 0, Tile location = null )
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.location = location;
+        this.personality = personality;
 
         people.Add(this);
     }
