@@ -61,6 +61,7 @@ public class MapHexagonal : MonoBehaviour
             GameObject hex = worldModel.transform.GetChild(i).gameObject;
             Debug.Log("Color of " + hex + " will be " + tiles[i].terrain.color);
             hex.GetComponent<MeshRenderer>().material.color = tiles[i].terrain.color;
+            hex.AddComponent<TileControl>().tile = tiles[i];
             //hex.GetComponentInChildren<Text>().text = tiles[i].terrain.name;
         }
     }
