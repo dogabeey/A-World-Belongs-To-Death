@@ -11,11 +11,14 @@ public class CamControl : MonoBehaviour {
     public float minZoom = 15, maxZoom = 5, zoomSpeed = 1;
     public enum ScrollStyle { world_2d, world_3d }
     public ScrollStyle scrollStyle;
+
+    Vector3 currentMouse;
+    float mouseSpeed;
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+		currentMouse = Input.mousePosition;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -58,21 +61,25 @@ public class CamControl : MonoBehaviour {
         }
         if (scrollStyle == ScrollStyle.world_3d)
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow) || (Input.GetKey(KeyCode.Mouse1) && Input.mousePosition.x > currentMouse.x))
             {
-                worldModel.transform.Rotate(new Vector3(0, -scrollSpeed));
+                mouseSpeed = currentMouse.x - Input.mousePosition.x;
+                worldModel.transform.Rotate(new Vector3(0, scrollSpeed * -mouseSpeed));
             }
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.Mouse1) && Input.mousePosition.x < currentMouse.x))
             {
-                worldModel.transform.Rotate(new Vector3(0, scrollSpeed));
+                mouseSpeed = currentMouse.x - Input.mousePosition.x;
+                worldModel.transform.Rotate(new Vector3(0, scrollSpeed * -mouseSpeed));
             }
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow) || (Input.GetKey(KeyCode.Mouse1) && Input.mousePosition.y < currentMouse.y))
             {
-                worldModel.transform.Rotate(new Vector3(-scrollSpeed, 0));
+                mouseSpeed = currentMouse.y - Input.mousePosition.y;
+                worldModel.transform.Rotate(new Vector3(scrollSpeed * mouseSpeed, 0));
             }
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow) || (Input.GetKey(KeyCode.Mouse1) && Input.mousePosition.y > currentMouse.y))
             {
-                worldModel.transform.Rotate(new Vector3(scrollSpeed, 0));
+                mouseSpeed = currentMouse.y - Input.mousePosition.y;
+                worldModel.transform.Rotate(new Vector3(scrollSpeed * mouseSpeed, 0));
             }
             if (Input.mouseScrollDelta.y > 0 && camera.orthographicSize > maxZoom + zoomSpeed)
             {
@@ -83,5 +90,7 @@ public class CamControl : MonoBehaviour {
                 camera.orthographicSize = camera.orthographicSize + zoomSpeed;
             }
         }
+
+        currentMouse = Input.mousePosition;
     }
 }
