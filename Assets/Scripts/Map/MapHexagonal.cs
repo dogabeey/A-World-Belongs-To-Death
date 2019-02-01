@@ -47,7 +47,6 @@ public class MapHexagonal : MonoBehaviour
 
     public void GenerateMap()
     {
-        Debug.Log("Started generating");
         for (int i = 0; i < tiles.Length; i++)
         {
             tiles[i] = Tile.RandomTile();
@@ -59,7 +58,6 @@ public class MapHexagonal : MonoBehaviour
         for (int i = 0; i < tiles.Length; i++)
         {
             GameObject hex = worldModel.transform.GetChild(i).gameObject;
-            Debug.Log("Color of " + hex + " will be " + tiles[i].terrain.color);
             hex.GetComponent<MeshRenderer>().material.color = tiles[i].terrain.color;
             hex.AddComponent<TileControl>().tile = tiles[i];
             //hex.GetComponentInChildren<Text>().text = tiles[i].terrain.name;

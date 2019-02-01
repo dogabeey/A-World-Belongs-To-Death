@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using cakeslice;
 
 public class TileControl : MonoBehaviour
 {
     public Tile tile;
     public int x, y;
+    public GameObject worldModel;
+
+    private void Start()
+    {
+        worldModel = GameObject.FindGameObjectWithTag("world");
+    }
 
     public List<GameObject> GetNeighbors()
     {
@@ -21,6 +27,10 @@ public class TileControl : MonoBehaviour
 
     void OnMouseUpAsButton()
     {
-        gameObject.SetActive(false);
+        for (int i = 0; i < worldModel.GetComponentsInChildren<Outline>().Length; i++)
+        {
+            worldModel.GetComponentsInChildren<Outline>()[i].eraseRenderer = true;
+        }
+        gameObject.GetComponent<Outline>().eraseRenderer = false;
     }
 }
