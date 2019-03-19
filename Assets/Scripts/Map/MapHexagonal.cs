@@ -11,11 +11,11 @@ public class MapHexagonal : MonoBehaviour
     void Start()
     {
         tiles = new Tile[worldModel.transform.childCount];
-        new TerrainType("desert", "desert.png", new Color32(200, 180, 45, 255));
-        new TerrainType("forest", "forest.png", new Color32(120, 180, 80, 255));
-        new TerrainType("jungle", "jungle.png", new Color32(50, 130, 15, 255));
-        new TerrainType("savannah", "savannah.png", new Color32(200, 130, 0, 255));
-        new TerrainType("concrete", "concrete.png", new Color32(190, 190, 180, 255));
+        new TerrainType("desert", "Assets/Resouces/Tilesdesert.png", new Color32(200, 180, 45, 255));
+        new TerrainType("forest", "Assets/Resouces/forest.png", new Color32(120, 180, 80, 255));
+        new TerrainType("jungle", "Assets/Resouces/jungle.png", new Color32(50, 130, 15, 255));
+        new TerrainType("savannah", "Assets/Resouces/savannah.png", new Color32(200, 130, 0, 255));
+        new TerrainType("concrete", "Assets/Resouces/concrete.png", new Color32(190, 190, 180, 255));
 
         new TerrainFeature("hill", "hill.png");
         new TerrainFeature("plain", "plain.png");

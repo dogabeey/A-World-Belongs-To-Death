@@ -8,7 +8,7 @@ public class TileControl : MonoBehaviour
     public Tile tile;
     public int x, y;
     GameObject worldModel;
-    static GameObject activeTile;
+    public static GameObject activeTile;
 
     private void Start()
     {
@@ -31,10 +31,10 @@ public class TileControl : MonoBehaviour
     {
         if (activeTile != null)
         {
-            Debug.Log("Deactivated " + gameObject.name);
+            //Debug.Log("Deactivated " + gameObject.name);
             activeTile.GetComponent<Outline>().eraseRenderer = true;
         }
-        Debug.Log("Mouse clicked on" + gameObject.name);
+        //Debug.Log("Mouse clicked on" + gameObject.name);
         gameObject.GetComponent<Outline>().eraseRenderer = false;
         activeTile = gameObject;
     }
